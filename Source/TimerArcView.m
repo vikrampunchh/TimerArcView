@@ -56,7 +56,7 @@
                           radius:rect.size.width/2 - (kArcWidth/2)
                       startAngle:startAngle
                         endAngle:endAngle
-                       clockwise:YES];
+                       clockwise:NO];
     
     endLabel.frame = CGRectMake(bezierPath.currentPoint.x - kArcWidth,
                                 bezierPath.currentPoint.y - kArcWidth,
@@ -70,7 +70,7 @@
 - (void)setMaxDuration:(CGFloat)maxDuration
     andCurrentDuration:(CGFloat)currentDuration {
     startAngle = 3 * M_PI_2;
-    endAngle = -(startAngle + ((M_PI*2.0) * (((maxDuration - currentDuration) / maxDuration) - 0.50)));
+    endAngle = (startAngle + ((M_PI*2.0) * ((maxDuration - currentDuration) / maxDuration)));
     endLabel.hidden = NO;
     self.percent = self.percent - 1;
     [self setNeedsDisplay];

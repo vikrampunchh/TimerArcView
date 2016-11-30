@@ -11,7 +11,7 @@
 
 @interface ViewController (){
     __weak IBOutlet TimerArcView * testView;
-    NSTimer* m_timer;
+    NSTimer* timer;
     NSInteger counter;
 }
 
@@ -21,21 +21,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
-    
-    counter = 25;
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    // Kick off a timer to count it down
-    m_timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(decrementSpin) userInfo:nil repeats:YES];
+    counter = 100;
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.05
+                                               target:self
+                                             selector:@selector(decrementSpin)
+                                             userInfo:nil
+                                              repeats:YES];
 }
 
 - (void)decrementSpin {
     CGFloat maxValue = 300;
     if (counter == maxValue ) {
-        [m_timer invalidate];
-        m_timer = nil;
+        [timer invalidate];
+        timer = nil;
         counter = 0;
     } else {
         [testView setMaxDuration:maxValue
