@@ -3,7 +3,7 @@
 //  TimerArcView
 //
 //  Created by iOS Dev Team on 26/11/16.
-//  Copyright © 2016 Punchh Inc. All rights reserved.
+//  Copyright © 2016 Vikram. All rights reserved.
 //
 
 #import "TimerArcView.h"
